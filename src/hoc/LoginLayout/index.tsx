@@ -7,7 +7,7 @@ import {
 } from '../../component'
 import store from '../../store'
 import useStore from '../../hooks/useStore'
-import { createClient } from '../../rz-paas-sdk'
+import { RzRTC, createClient } from '../../rz-paas-sdk'
 import { addListeners, initConfigs } from '../../sdkUtils/mediaConnect'
 
 export default function LoginLayoutHoc() {
@@ -60,6 +60,8 @@ export default function LoginLayoutHoc() {
 
   useEffect(() => {
     store.reset()
+    RzRTC.getCameras(true)
+    RzRTC.getMicrophones(true)
   }, [])
 
   return (

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { types } from 'mobx-state-tree'
+import { types, getSnapshot, applySnapshot } from 'mobx-state-tree'
 import _ from 'lodash'
 import BaseType from './BaseType'
 import LocalAudio from './LocalAudio'
@@ -89,6 +89,7 @@ const store = BaseType.props({
   },
 }))
   .actions((self) => {
+    let initState: any = {}
     return {
       setJoinnedChannel(joined: boolean) {
         self.joinedChannel = joined
@@ -163,9 +164,13 @@ const store = BaseType.props({
         self.remoteAudios.delete(user.uid)
         return user.uid
       },
+      afterCreate() {
+        initState = getSnapshot(self)
+      },
       reset() {
         const { channelId } = self
         const userId = self.selfUid
+        applySnapshot(self, initState)
         self.channelId = channelId
         self.selfUid = userId
       },
