@@ -48,7 +48,7 @@ function RemoteVideo(props: RemoteVideoProps, ref) {
       ref={wrapperRef}
     >
       <div className="header">
-        <div className="user-id" title={userId}>{`${userId} ${streamName}`}</div>
+        <div className="user-id" title={userId}>{`${userId}`}</div>
       </div>
       <div
         className="main-content"
@@ -123,7 +123,7 @@ function RemoteVideo(props: RemoteVideoProps, ref) {
               'audio-err-icon': isAudioStreamMuted,
             })}
           />
-          {isAudioSubscribing ? '拉取' : '停止'}
+          {isAudioSubscribing ? '开启' : '停止'}
         </div>
         <div
           className={classNames({

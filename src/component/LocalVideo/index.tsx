@@ -44,7 +44,7 @@ export default React.forwardRef((props: LocalVideoProps, ref) => {
     >
       <div className="header">
         <div className="user-id">
-          {`${userId} ${videoId}`}
+          {`${userId}`}
           （我）
         </div>
       </div>
@@ -100,7 +100,7 @@ export default React.forwardRef((props: LocalVideoProps, ref) => {
               'video-err-icon': !isVideoStreamAvailable,
             })}
           />
-          {isVideoMuted ? '停止' : '推送'}
+          {isVideoMuted ? '关闭' : '开启'}
         </div>
         <div
           className="stream-button"
@@ -112,7 +112,7 @@ export default React.forwardRef((props: LocalVideoProps, ref) => {
               'audio-err-icon': !isAudioStreamAvailable,
             })}
           />
-          {isAudioMuted ? '停止' : '推送'}
+          {isAudioMuted ? '关闭' : '开启'}
         </div>
       </div>
     </div>
