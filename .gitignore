@@ -1,0 +1,16 @@
+node_modules
+
+*.log
+
+build
+
+out
+.vscode/settings.json
+
+.idea
+
+devresource
+
+doc
+
+scripts/upload-files.js
