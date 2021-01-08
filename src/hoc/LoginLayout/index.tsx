@@ -60,8 +60,8 @@ export default function LoginLayoutHoc() {
 
   useEffect(() => {
     store.reset()
-    RzRTC.getCameras(true)
-    RzRTC.getMicrophones(true)
+    RzRTC.getCameras(true).catch((e) => { console.log('get cameras error', e.message) })
+    RzRTC.getMicrophones(true).catch((e) => { console.log('get mics error', e.message) })
   }, [])
 
   return (
