@@ -141,17 +141,17 @@ const createLocalTracks = (isCreateVideoTrack: boolean = true, isCreateAudioTrac
   return new Promise(async (resolve, reject) => {
     if (isCreateVideoTrack === true) {
       // 对接视频1设置
-      store.addLocalVideo('first')
+      store.addLocalVideo('')
       if (store.settingsStore.cameraId !== DeviceID.close) {
         try {
           const track = await RzRTC.createCameraVideoTrack(store.cameraVideoTrackInitConfig1)
           track.onFirstFrameDecoded((width, height) => {
-            store.localVideos.get('first').setFirstFrameDecoded(true)
+            store.localVideos.get('').setFirstFrameDecoded(true)
           })
-          await client.publish(track, 'first')
-          setTrack('first', track, true)
+          await client.publish(track, '')
+          setTrack('', track, true)
           await track.setEnableDualStream(true)
-          store.localVideos.get('first').setMuted(false)
+          store.localVideos.get('').setMuted(false)
         } catch (e) {
           handleCreateVideoTrackError(e)
           reject(e)
@@ -177,7 +177,7 @@ const createLocalTracks = (isCreateVideoTrack: boolean = true, isCreateAudioTrac
 const destroyLocalTracks = () => {
   const client = getClient()
   const unpublishRes = []
-  _.forEach(['first', 'second'], (id) => {
+  _.forEach([''], (id) => {
     const track = getTrack<ICameraVideoTrack>(id, true)
     if (track) {
       unpublishRes.push(client.unpublish(track))

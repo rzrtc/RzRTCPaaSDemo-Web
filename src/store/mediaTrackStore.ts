@@ -5,14 +5,13 @@ import store from './index'
 
 /**
  * 保存 audioTrack 或 videoTrack
- * 推流1 id 为 'first'
- * 推流2 id 为 'second'
+ * 推流1 id 为 ''
  * 本地音频 id 为 'localAudio'
  * 远端视频 id 为 remoteVideo.id
  * 远端音频 id 为 remoteAudio.id
  */
 type UsedTrack = IRemoteAudioTrack | IRemoteVideoTrack | ICameraVideoTrack | IMicrophoneAudioTrack
-type StreamId = string | 'first' | 'second' | 'localAudio'
+type StreamId = string | '' | 'localAudio'
 
 const videoTrackStore = new Map<StreamId, IRemoteVideoTrack | ICameraVideoTrack>()
 const audioTrackStore = new Map<StreamId, IRemoteAudioTrack | IMicrophoneAudioTrack>()
@@ -22,7 +21,7 @@ const setTrack = (id: StreamId, track: UsedTrack, isVideo: boolean) => {
     videoTrackStore.set(id, track as IRemoteVideoTrack | ICameraVideoTrack);
     (track as IRemoteVideoTrack | ICameraVideoTrack).onFirstFrameDecoded((width: number, height: number) => {
       console.log('onFirstFrameDecoded', id)
-      if (id === 'first' || id === 'second') {
+      if (id === '') {
         store.localVideos.get(id).setFirstFrameDecoded(true)
       } else {
         store.remoteVideos.get(id).setFirstFrameDecoded(true)

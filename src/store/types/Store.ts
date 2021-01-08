@@ -29,11 +29,7 @@ const store = BaseType.props({
     _.map(self.remoteVideos.toJSON(), (video) => {
       const { uid } = video.user
       if (result.has(uid)) {
-        if (video.streamName === 'first') {
-          result.get(uid).videos.unshift(video)
-        } else {
-          result.get(uid).videos.push(video)
-        }
+        result.get(uid).videos.push(video)
       } else {
         result.set(uid, {
           videos: [video],
@@ -118,8 +114,8 @@ const store = BaseType.props({
       },
       initLocalVideos() {
         self.localVideos.clear()
-        self.localVideos.set('first', {
-          id: 'first',
+        self.localVideos.set('', {
+          id: '',
           muted: null,
         })
       },
