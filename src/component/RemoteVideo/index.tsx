@@ -1,13 +1,11 @@
 import React from 'react'
 import classNames from 'classnames'
-import { isNumber } from 'lodash'
 
 import './index.less'
 
 export interface RemoteVideoProps {
   style?: Object,
   userId: string,
-  streamName: string,
   isVideoStreamMuted: boolean,
   isVideoSubscribing: boolean,
   isAudioStreamMuted: boolean,
@@ -25,7 +23,6 @@ function RemoteVideo(props: RemoteVideoProps, ref) {
   const {
     style,
     userId,
-    streamName,
     isVideoStreamMuted,
     isVideoSubscribing,
     isAudioStreamMuted,
@@ -108,7 +105,7 @@ function RemoteVideo(props: RemoteVideoProps, ref) {
               'video-err-icon': isVideoStreamMuted,
             })}
           />
-          {isVideoSubscribing ? '拉取' : '停止'}
+          {isVideoSubscribing ? '开启' : '停止'}
         </div>
         <div
           className={classNames({

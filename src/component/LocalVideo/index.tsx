@@ -1,37 +1,23 @@
 import React from 'react'
-import classNames from 'classnames'
 
 import './index.less'
 
 export interface LocalVideoProps {
   style?: Object,
   userId: string,
-  videoId: string,
   isVideoStreamAvailable: boolean, // 摄像头关闭为 false 否则为 true
   isCameraEmpty: boolean,
   createTrackError: string,
-  isVideoMuted: boolean,
-  isAudioStreamAvailable: boolean, // 麦克风关闭为 false 否则为 true
-  isAudioMuted: boolean,
   isFirstFrameDecoded: boolean,
-  onSwitchVideo: () => void,
-  onSwitchAudio: () => void,
-  onClickZoomIn?: () => void,
 }
 export default React.forwardRef((props: LocalVideoProps, ref) => {
   const {
     style,
     userId,
-    videoId,
     isVideoStreamAvailable,
     createTrackError,
     isCameraEmpty,
-    isVideoMuted,
-    isAudioStreamAvailable,
-    isAudioMuted,
     isFirstFrameDecoded,
-    onSwitchVideo,
-    onSwitchAudio,
   } = props
 
   const wrapperRef = React.useRef(null)
@@ -88,32 +74,6 @@ export default React.forwardRef((props: LocalVideoProps, ref) => {
           ref={ref}
           className="video-elememt-container"
         />
-      </div>
-      <div className="foot">
-        <div
-          className="stream-button"
-          onClick={onSwitchVideo}
-        >
-          <i
-            className={classNames({
-              'video-normal-icon': isVideoStreamAvailable,
-              'video-err-icon': !isVideoStreamAvailable,
-            })}
-          />
-          {isVideoMuted ? '关闭' : '开启'}
-        </div>
-        <div
-          className="stream-button"
-          onClick={onSwitchAudio}
-        >
-          <i
-            className={classNames({
-              'audio-normal-icon': isAudioStreamAvailable,
-              'audio-err-icon': !isAudioStreamAvailable,
-            })}
-          />
-          {isAudioMuted ? '关闭' : '开启'}
-        </div>
       </div>
     </div>
   )

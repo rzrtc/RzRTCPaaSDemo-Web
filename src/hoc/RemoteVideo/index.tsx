@@ -169,7 +169,6 @@ export default function RemoteVideoHOC({
   return (
     <RemoteVideo
       userId={videoInfo.user.uid}
-      streamName={videoInfo.streamName}
       isHDSetting={videoInfo.isHDSetting}
       isAudioStreamMuted={audioInfo?.muted}
       isAudioSubscribing={audioInfo?.subscribing}
