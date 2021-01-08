@@ -44,7 +44,7 @@ export default function LoginLayoutHoc() {
     addListeners()
 
     client
-      .join('2020112714291613322098613675048981332168688175226882', channelId, userId)
+      .join('Drv4Q0KB14Y85qma', channelId, userId)
       .then(() => {
         store.setSelfUid(client.getSelfUid())
         store.setJoinnedChannel(true)

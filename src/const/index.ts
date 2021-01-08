@@ -36,5 +36,5 @@ export const JOIN_ERROR_MSG = {
   [JoinErrorCode.InvalidState]: 'SDK 状态不合法',
   [JoinErrorCode.InvalidUserId]: '当前用户 ID 不合法',
   [JoinErrorCode.ConnectServerFailed]: '连接服务器失败',
-  [JoinErrorCode.FetchServersFailed]: '获取服务器失败',
+  [JoinErrorCode.FetchServersFailed]: '获取服务器列表失败',
 }

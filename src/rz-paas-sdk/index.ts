@@ -9,10 +9,10 @@ const rzCreatClient = RzRTC.createClient
 const createClient = (config: CreateClientConfig) => {
   client = rzCreatClient({
     mode: config.mode,
-    webServers: ['https://api-dev.rzrtc.com'],
+    webServers: ['https://api.rzrtc.com'],
     streamServers: [],
     signalServers: [],
-    logServers: ['https://data-center-dev.duobeiyun.com'],
+    logServers: ['https://data-center.duobeiyun.com'],
   })
   window.client = client
   return client
