@@ -38,6 +38,8 @@ export default function PromptContainerHoc() {
             content="检测到您在其他设备登录,请返回登录后重试。"
             buttonText="返回登录页面"
             onClickMainButton={handleKickOut}
+            onClose={() => { store.promptStore.setKickOut(false) }}
+            canClose
           />
         )
       }
@@ -48,6 +50,8 @@ export default function PromptContainerHoc() {
             content="网络连接丢失"
             buttonText="返回登录页面"
             onClickMainButton={handleConnectFailed}
+            onClose={() => { store.promptStore.setConnectFailed(false) }}
+            canClose
           />
         )
       }

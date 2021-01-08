@@ -14,9 +14,21 @@
     box-sizing: border-box;
 
     .title {
-      font-size: 16px;
-      font-weight: 500;
-      color: #38455d;
+      display: flex;
+
+      .text{
+        flex: 1;
+        font-size: 16px;
+        font-weight: 500;
+        color: #38455d;
+      }
+
+      .close-btn {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        background: url('../../../assets/image/close-btn-icon.svg');
+      }
     }
 
     .content {
