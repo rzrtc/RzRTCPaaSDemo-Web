@@ -5,7 +5,7 @@ import {
 export const RZ_PAAS_TEST_APP_LOGS = 'RZ_PAAS_TEST_APP_LOGS'
 
 export const DeviceID = {
-  empty: 'empty',
+  empty: '',
   close: 'close',
 }
 
