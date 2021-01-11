@@ -8,24 +8,21 @@ import MoreInfoPanel from '../MoreInfoPanel'
 export default function ChannelLayoutHoc() {
   const [showSideBox, setShowSideBox] = useState(false)
   const [showMoreInfo, setShowMoreInfo] = useState(false)
-  const [showUserInfo, setShowUserInfo] = useState(false)
 
   useEffect(() => {
-    if (showMoreInfo === false && showUserInfo === false) {
+    if (showMoreInfo === false) {
       setShowSideBox(false)
     } else {
       setShowSideBox(true)
     }
-  }, [showMoreInfo, showUserInfo])
+  }, [showMoreInfo])
 
   const handleClickMore = () => {
-    setShowUserInfo(false)
     setShowMoreInfo(!showMoreInfo)
   }
 
   const handleCloseRightSideBox = () => {
     setShowMoreInfo(false)
-    setShowUserInfo(false)
   }
 
   return (

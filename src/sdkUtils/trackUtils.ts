@@ -17,20 +17,10 @@ const setCamera = (deviceId:string):Promise<void> => {
 
   return new Promise(async (resolve, reject) => {
     try {
-      if (deviceId === DeviceID.close) {
-        await track?.setEnabled(false)
-      } else {
-        if (hasNoVideoTrack === true) {
-          store.settingsStore.update({ cameraId: deviceId })
-          await createLocalTracks(true, false)
-        } else if (track.getDevice() === deviceId) {
-          await track.setEnabled(true)
-        } else {
-          store.localVideos.get('')?.setFirstFrameDecoded(false)
-          await track.setEnabled(true)
-          await track.setDevice(deviceId)
-        }
-      }
+      // 正常切换设备
+      store.localVideos.get('')?.setFirstFrameDecoded(false)
+      await track.setEnabled(true)
+      await track.setDevice(deviceId)
       store.settingsStore.update({ cameraId: deviceId })
     } catch (error) {
       reject(error)
@@ -51,19 +41,8 @@ const setMic = (deviceId: string): Promise<void> => {
     }
 
     try {
-      if (deviceId === DeviceID.close) {
-        await track?.setEnabled(false)
-      } else {
-        if (hasNoAudioTrack === true) {
-          store.settingsStore.update({ micId: deviceId })
-          await createLocalTracks(false, true)
-        } else if (track.getDevice() === deviceId) {
-          await track.setEnabled(true)
-        } else {
-          await track.setEnabled(true)
-          await track.setDevice(deviceId)
-        }
-      }
+      await track.setEnabled(true)
+      await track.setDevice(deviceId)
     } catch (error) {
       reject(error)
     }

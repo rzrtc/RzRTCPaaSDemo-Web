@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Select } from 'antd'
 
 import SettingsListItem from '../SettingsListItem'
-import { DeviceID } from '../../const'
 import './index.less'
 
 const { Option } = Select
@@ -32,21 +31,7 @@ export default function MoreInfoPanel(props: MoreInfoPanelProps) {
   const [selectingMic, setSelectingMic] = useState(false)
   const [selectingCamera, setSelectingCamera] = useState(false)
 
-  const renderDevicesOptions = (
-    devices: MediaDeviceInfo[],
-    kind: MediaDeviceKind,
-  ) => {
-    const closeDeviceOptions = []
-    closeDeviceOptions.push(
-      <Option key={DeviceID.close + Math.random().toString(36).substring(7)} value={DeviceID.close}>
-        {kind === 'audioinput' ? '关闭麦克风' : '关闭摄像头'}
-      </Option>,
-    )
-
-    if (devices.length === 0) {
-      return closeDeviceOptions
-    }
-
+  const renderDevicesOptions = (devices: MediaDeviceInfo[]) => {
     const devicesOptions = devices.map((device) => {
       return (
         <Option key={device.deviceId} value={device.deviceId}>
@@ -55,7 +40,7 @@ export default function MoreInfoPanel(props: MoreInfoPanelProps) {
       )
     })
 
-    return [...closeDeviceOptions, ...devicesOptions]
+    return devicesOptions
   }
 
   return (
@@ -76,7 +61,7 @@ export default function MoreInfoPanel(props: MoreInfoPanelProps) {
               }}
               loading={selectingCamera}
             >
-              {renderDevicesOptions(cameraDevices, 'videoinput')}
+              {renderDevicesOptions(cameraDevices)}
             </Select>
           </SettingsListItem>
           <SettingsListItem name="麦克风">
@@ -92,7 +77,7 @@ export default function MoreInfoPanel(props: MoreInfoPanelProps) {
               }}
               loading={selectingMic}
             >
-              {renderDevicesOptions(micDevices, 'audioinput')}
+              {renderDevicesOptions(micDevices)}
             </Select>
           </SettingsListItem>
         </div>
