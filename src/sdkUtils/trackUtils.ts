@@ -2,8 +2,6 @@ import _ from 'lodash'
 import type { ICameraVideoTrack, IMicrophoneAudioTrack } from 'rz-paas-sdk-web'
 import { getTrack } from '../store/mediaTrackStore'
 import store from '../store'
-import { DeviceID } from '../const'
-import { createLocalTracks } from './mediaConnect'
 
 const setCamera = (deviceId:string):Promise<void> => {
   const track = getTrack<ICameraVideoTrack>('')
