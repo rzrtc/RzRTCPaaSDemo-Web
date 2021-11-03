@@ -54,6 +54,6 @@
     "query-string": "^6.13.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rz-paas-sdk-web": "^1.2.6"
+    "rz-paas-sdk-web": "^1.2.7"
   }
 }
