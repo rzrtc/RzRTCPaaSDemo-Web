@@ -5629,10 +5629,10 @@ run-parallel@^1.1.9:
   resolved "https://registry.npm.taobao.org/run-parallel/download/run-parallel-1.1.10.tgz?cache=0&sync_timestamp=1603768307430&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frun-parallel%2Fdownload%2Frun-parallel-1.1.10.tgz#60a51b2ae836636c81377df16cb107351bcd13ef"
   integrity sha1-YKUbKug2Y2yBN33xbLEHNRvNE+8=
 
-rz-paas-sdk-web@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.npmmirror.com/rz-paas-sdk-web/download/rz-paas-sdk-web-1.2.7.tgz?cache=0&sync_timestamp=1635905800806&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Frz-paas-sdk-web%2Fdownload%2Frz-paas-sdk-web-1.2.7.tgz#88488b1237fdeb334b96b1e18c04107ef982d0db"
-  integrity sha1-iEiLEjf96zNLlrHhjAQQfvmC0Ns=
+rz-paas-sdk-web@1.2.8:
+  version "1.2.8"
+  resolved "https://registry.npmmirror.com/rz-paas-sdk-web/download/rz-paas-sdk-web-1.2.8.tgz?cache=0&sync_timestamp=1636083588699&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Frz-paas-sdk-web%2Fdownload%2Frz-paas-sdk-web-1.2.8.tgz#0540e08a2ecb5fffa63b313c8d38b3ab13539611"
+  integrity sha1-BUDgii7LX/+mOzE8jTizqxNTlhE=
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
